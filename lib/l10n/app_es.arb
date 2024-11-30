@@ -1,0 +1,5 @@
+{
+  "@@locale": "es",
+  "title": "Hola Mundo",
+  "greeting": "¡Bienvenido, {name}!"
+}

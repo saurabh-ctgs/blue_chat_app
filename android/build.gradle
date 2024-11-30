@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // Ensure you're using AGP version 8.x to be compatible with Gradle 8.3
+        classpath 'com.android.tools.build:gradle:8.0.0'  // Adjust to latest AGP version
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10'  // Kotlin plugin, ensure compatibility with your Kotlin version
+        classpath 'com.google.gms:google-services:4.3.15'  // Add this if using Firebase or Google services
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = "../build"  // Ensure the build directory is set correctly
+
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+subprojects {
+    project.evaluationDependsOn(":app")  // Ensure the app module is evaluated properly
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir  // Clean task for the project
+}

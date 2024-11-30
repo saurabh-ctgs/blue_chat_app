@@ -1,0 +1,5 @@
+{
+  "@@locale": "en",
+  "title": "Hello World",
+  "greeting": "Welcome, {name}!"
+}
